@@ -12,7 +12,7 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-const faker = require('faker');
+const faker = require('@faker-js/faker');
 const fetch = require('node-fetch');
 
 /**
