@@ -15,7 +15,7 @@
 // ***********************************************************
 import '@cypress/code-coverage/support';
 import '@testing-library/cypress/add-commands';
-import faker from 'faker';
+import faker from '@faker-js/faker';
 
 import { login } from '../../src/reducers/auth';
 
