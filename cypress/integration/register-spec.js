@@ -2,7 +2,7 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="@testing-library/cypress" />
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 describe('Register page', () => {
   const usernamePlaceholder = 'Username';
