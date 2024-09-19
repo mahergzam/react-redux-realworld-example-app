@@ -3,7 +3,7 @@ import user from '@testing-library/user-event';
 import { faker } from '@faker-js/faker';
 import { createMemoryHistory } from 'history';
 import fetchMock from 'jest-fetch-mock';
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import render from '../../test/utils';
 import AuthScreen from './AuthScreen';
@@ -26,7 +26,7 @@ describe('<AuthScreen />', () => {
       initialEntries: ['/login'],
     });
 
-    render(<Route path="/login" component={AuthScreen} />, { history });
+    render(<Routes> <Route path="/login" component={AuthScreen} /> </Routes>, { history });
 
     expect(screen.getByText(/need an account\?/i)).toBeInTheDocument();
     expect(
@@ -61,7 +61,7 @@ describe('<AuthScreen />', () => {
       password: 'Pa$$w0rd!',
     };
 
-    render(<Route path="/login" component={AuthScreen} />, { history });
+    render(<Routes> <Route path="/login" component={AuthScreen} /> </Routes>, { history });
 
     user.type(screen.getByPlaceholderText('Email'), data.email);
     user.type(screen.getByPlaceholderText('Password'), data.password);
@@ -84,7 +84,7 @@ describe('<AuthScreen />', () => {
       initialEntries: ['/register'],
     });
 
-    render(<Route path="/register" component={AuthScreen} />, { history });
+    render(<Routes> <Route path="/register" component={AuthScreen} /> </Routes>, { history });
 
     expect(screen.getByText(/have an account\?/i)).toBeInTheDocument();
     expect(
@@ -119,7 +119,7 @@ describe('<AuthScreen />', () => {
       password: faker.internet.password(12),
     };
 
-    render(<Route path="/register" component={AuthScreen} />, {
+    render(<Routes> <Route path="/register" component={AuthScreen} /> </Routes>, {
       history,
     });
 
@@ -160,7 +160,7 @@ describe('<AuthScreen />', () => {
       password: faker.internet.password(5),
     };
 
-    render(<Route path="/register" component={AuthScreen} />, {
+    render(<Routes> <Route path="/register" component={AuthScreen} /> </Routes>, {
       history,
     });
 

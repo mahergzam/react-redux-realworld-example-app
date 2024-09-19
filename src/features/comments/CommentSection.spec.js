@@ -7,7 +7,7 @@ import user from '@testing-library/user-event';
 import { faker } from '@faker-js/faker';
 import { createMemoryHistory } from 'history';
 import fetchMock from 'jest-fetch-mock';
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import agent from '../../agent';
 import { makeStore } from '../../app/store';
@@ -139,7 +139,7 @@ describe('<CommentSection />', () => {
     });
     const store = makeStore(unauthenticatedRootState);
 
-    render(<Route path="/article/:slug" component={CommentSection} />, {
+    render(<Routes> <Route path="/article/:slug" component={CommentSection} /> </Routes>, {
       history,
       store,
     });
@@ -179,7 +179,7 @@ describe('<CommentSection />', () => {
     const store = makeStore(authenticatedRootState);
     const comment = faker.lorem.sentence();
 
-    render(<Route path="/article/:slug" component={CommentSection} />, {
+    render(<Routes> <Route path="/article/:slug" component={CommentSection} /> </Routes>, {
       history,
       store,
     });
@@ -213,7 +213,7 @@ describe('<CommentSection />', () => {
     });
     const store = makeStore(authenticatedRootState);
 
-    render(<Route path="/article/:slug" component={CommentSection} />, {
+    render(<Routes> <Route path="/article/:slug" component={CommentSection} /> </Routes>, {
       history,
       store,
     });
@@ -239,7 +239,7 @@ describe('<CommentSection />', () => {
     });
     const store = makeStore(authenticatedRootState);
 
-    render(<Route path="/article/:slug" component={CommentSection} />, {
+    render(<Routes> <Route path="/article/:slug" component={CommentSection} /> </Routes>, {
       history,
       store,
     });
